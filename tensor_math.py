@@ -52,7 +52,7 @@ m = 20
 p = 30
 t1 = torch.tensor((batch, n, m))
 t2 = torch.tensor((batch, m, p))
-out_bmm = torch.bmm()
+# out_bmm = torch.bmm()
 # print(out_bmm)
 
 # broadcasting in python and numpy
@@ -62,7 +62,15 @@ torch.sum(x, dim=0)
 values, indices = torch.max(x, dim=0)
 # min, argmax, argmin, mean, eq(equal), any, all
 
+"""
+Indexing
+"""
 
+"""
+Reshaping
+"""
 
-
-
+x = torch.arange(9)
+x_3x3 = x.view(3,3)
+x_3x3 = x.reshape(3,3)
+print(x_3x3)

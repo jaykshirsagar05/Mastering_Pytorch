@@ -9,18 +9,6 @@ from torch.utils.data import DataLoader
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
 
-# Create FCN
-class FCN(nn.Module):
-    def __init__(self, input_size, num_classes):
-        super(FCN, self).__init__()
-        self.fc1 = nn.Linear(input_size, 50)
-        self.fc2 = nn.Linear(50, num_classes)
-
-    def forward(self, x):
-        x = F.relu(self.fc1(x))
-        x = self.fc2(x)
-        return x
-
 # Create CNN class
 class CNN(nn.Module):
     def __init__(self, in_channels = 1, num_classes = 10):
@@ -43,9 +31,6 @@ class CNN(nn.Module):
 model = CNN()
 x = torch.randn(64, 1, 28, 28)
 print(model(x).shape)
-# model = FCN(784, 10)
-# x = torch.randn(64, 784)  # O/p [64,10]
-# print(model(x).shape)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(device)
 
